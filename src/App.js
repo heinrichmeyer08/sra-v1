@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import { withAuthenticator } from '@aws-amplify/ui-react'
 
 function App() {
   return (
@@ -22,4 +23,6 @@ function App() {
   );
 }
 
-export default App;
+//ensures that you have to login in order to view the app component
+//can be used for access to specific forms where users need access --> higher order component
+export default withAuthenticator(App)

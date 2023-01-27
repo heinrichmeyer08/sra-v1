@@ -4,10 +4,22 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import {Amplify} from "aws-amplify";
+//'./aws-exports' contains info on where my authentication files are located
+//in aws e.g. congnito
+import config from './aws-exports'
+
+import '@aws-amplify/ui-react/styles.css'
+import { AmplifyProvider } from '@aws-amplify/ui-react'
+
+Amplify.configure(config)
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <AmplifyProvider>
+      <App />
+    </AmplifyProvider>,
   </React.StrictMode>
 );
 
